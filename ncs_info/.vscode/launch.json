@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NcsInfoApplication<ncs_info>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.publicdata.ncs_info.NcsInfoApplication",
+            "projectName": "ncs_info",
+            "args": ""
+        }
+    ]
+}

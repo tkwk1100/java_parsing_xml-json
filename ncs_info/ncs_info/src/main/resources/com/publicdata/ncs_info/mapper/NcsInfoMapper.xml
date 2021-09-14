@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.publicdata.ncs_info.mapper.NcsInfoMapper">
+    <insert id="insertNcsInfo">
+        insert into ncs_subjects(
+    ns_code,ns_l_class,ns_m_class,ns_s_class,ns_d_class,ns_name,ns_def,ns_level
+)
+select * from (
+	select 
+	#{ns_code} as no, 
+	#{ns_l_class} as d1, 
+	#{ns_m_class} as d2,
+	#{ns_s_class} as d3,
+	#{ns_d_class} as d4,
+	#{ns_name} as d5,
+	#{ns_def} as d6,
+	#{ns_level} as d7
+) as data
+where not exists (
+	select ns_code from ncs_subjects where ns_code = #{ns_code}
+)
+    </insert>
+</mapper>
